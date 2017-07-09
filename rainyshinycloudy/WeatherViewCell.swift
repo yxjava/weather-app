@@ -10,15 +10,21 @@ import UIKit
 
 class WeatherViewCell: UITableViewCell {
 
+    @IBOutlet weak var minTempLbl: UILabel!
+    @IBOutlet weak var maxTempLbl: UILabel!
+    @IBOutlet weak var weatherTypeLbl: UILabel!
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var weatherImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func updateUI(weatherCell: WeatherCell){
+        minTempLbl.text = String(weatherCell.minTemp) + "°F"
+        maxTempLbl.text = String(weatherCell.maxTemp) + "°F"
+        weatherTypeLbl.text = weatherCell.weatherType
+        dateLbl.text = weatherCell.date
+        weatherImage.image = weatherCell.weatherImage
     }
 
 }
